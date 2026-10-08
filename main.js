@@ -3,7 +3,8 @@ let start = document.getElementById("start");
 let stop = document.getElementById("stop");
 let min = document.getElementById("min");
 let sek = document.getElementById("sek");
-let hour = document.getElementById("hour")
+let hour = document.getElementById("hour");
+let reset = document.getElementById("reset");
 let timer;
 let secund = 0;
 let minute = 0;
@@ -35,4 +36,17 @@ start.addEventListener("click", function(e){
 stop.addEventListener("click", function(e){
     e.preventDefault()
     clearInterval(timer);
+    timer = null;
+})
+
+reset.addEventListener("click", function(e){
+    e.preventDefault()
+    clearInterval(timer);
+    timer = null;
+    secund = 0;
+    minute = 0;
+    soat = 0;
+    sek.textContent = String(secund).padStart(2, '0');
+    min.textContent = String(minute).padStart(2, '0');
+    hour.textContent = String(soat).padStart(2, '0');
 })
